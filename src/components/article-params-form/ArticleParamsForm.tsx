@@ -1,10 +1,15 @@
 import { ArrowButton } from 'src/ui/arrow-button';
 import { Button } from 'src/ui/button';
+import { Text } from 'src/ui/text';
+import { RadioGroup } from 'src/ui/radio-group';
+import { Separator } from 'src/ui/separator';
 
 import styles from './ArticleParamsForm.module.scss';
 import { useState, useRef } from 'react';
 import {
 	ArticleStateType,
+	backgroundColors,
+	contentWidthArr,
 	fontColors,
 	fontFamilyOptions,
 	fontSizeOptions,
@@ -51,12 +56,9 @@ export const ArticleParamsForm = ({
 						e.preventDefault();
 						setCurrentArticleState(selectArticleState);
 					}}>
-					<Select
-						selected={selectArticleState.fontColor}
-						options={fontColors}
-						onChange={(option) => handleChange('fontColor', option)}
-						title='Цвет'
-					/>
+					<Text as={'h2'} size={31} weight={800} uppercase>
+						Задайте параметры
+					</Text>
 
 					<Select
 						selected={selectArticleState.fontFamilyOption}
@@ -65,11 +67,35 @@ export const ArticleParamsForm = ({
 						title='Шрифт'
 					/>
 
-					<Select
+					<RadioGroup
+						name='fontSize'
 						selected={selectArticleState.fontSizeOption}
 						options={fontSizeOptions}
 						onChange={(option) => handleChange('fontSizeOption', option)}
-						title='Размер'
+						title='Размер шрифта'
+					/>
+
+					<Select
+						selected={selectArticleState.fontColor}
+						options={fontColors}
+						onChange={(option) => handleChange('fontColor', option)}
+						title='Цвет шрифта'
+					/>
+
+					<Separator />
+
+					<Select
+						selected={selectArticleState.backgroundColor}
+						options={backgroundColors}
+						onChange={(option) => handleChange('backgroundColor', option)}
+						title='Цвет фона'
+					/>
+
+					<Select
+						selected={selectArticleState.contentWidth}
+						options={contentWidthArr}
+						onChange={(option) => handleChange('contentWidth', option)}
+						title='Ширина контента'
 					/>
 
 					<div className={styles.bottomContainer}>
