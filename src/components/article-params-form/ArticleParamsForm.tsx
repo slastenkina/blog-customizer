@@ -10,6 +10,7 @@ import {
 	ArticleStateType,
 	backgroundColors,
 	contentWidthArr,
+	defaultArticleState,
 	fontColors,
 	fontFamilyOptions,
 	fontSizeOptions,
@@ -55,6 +56,10 @@ export const ArticleParamsForm = ({
 					onSubmit={(e) => {
 						e.preventDefault();
 						setCurrentArticleState(selectArticleState);
+					}}
+					onReset={(e) => {
+						e.preventDefault();
+						setCurrentArticleState(defaultArticleState);
 					}}>
 					<Text as={'h2'} size={31} weight={800} uppercase>
 						Задайте параметры
