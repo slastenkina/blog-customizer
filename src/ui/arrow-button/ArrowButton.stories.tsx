@@ -11,6 +11,8 @@ type Story = StoryObj<typeof ArrowButton>;
 
 export const ArrowButtonStory: Story = {
 	render: () => {
-		return <ArrowButton onClick={() => console.log('Close')} isOpen={true} />;
+		return (
+			<ArrowButton onClick={() => console.log('Close')} isMenuOpen={true} />
+		);
 	},
 };
